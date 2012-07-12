@@ -1,0 +1,12 @@
+- title :show, CouchBlog::Post
+- page_link :index
+- page_link :edit
+.show-field
+  .show-label= attribute :title
+  .show-value= @post.title
+.show-field
+  .show-label= attribute :date
+  .show-value.date=l @post.date
+.show-field
+  .show-label= attribute :body
+  .show-value=raw @post.body

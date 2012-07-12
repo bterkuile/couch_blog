@@ -1,0 +1,38 @@
+en:
+  activemodel:
+    models:
+      couch_blog:
+        post: Post
+      plural:
+        couch_blog:
+          post: Posts
+    attributes:
+      couch_blog:
+        post:
+          title: Titel
+          date: Datum
+          body: Content
+  couch_blog:
+    general:
+      are_you_sure: 'Are you sure?'
+    action:
+      index:
+        link: '%{models}'
+        title: Listing %{models}
+      new:
+        title: New %{model}
+        link: New %{model}
+      show:
+        title: Showing %{model}
+        link: Show %{model}
+      edit:
+        title: Edit %{model}
+        link: Edit %{model}
+        table_link: edit
+      create:
+        successful: '%{model} created successfully'
+      update:
+        successful: '%{model} updated successfully'
+      destroy:
+        successful: '%{model} successfully removed'
+        table_link: x
