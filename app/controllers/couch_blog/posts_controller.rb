@@ -3,7 +3,7 @@ module CouchBlog
 
     # GET posts
     def index
-      @posts = CouchBlog::Post.all + [CouchBlog::Post.new(title: 'Tester', date: Date.today, body: 'Hol')]
+      @posts = CouchBlog::Post.all
     end
 
     #GET posts/:id(/:title)
