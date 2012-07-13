@@ -7,14 +7,14 @@ require "couch_blog/version"
 Gem::Specification.new do |s|
   s.name        = "couch_blog"
   s.version     = CouchBlog::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of CouchBlog."
-  s.description = "TODO: Description of CouchBlog."
+  s.authors     = ["Benjamin ter Kuile"]
+  s.email       = ["bterkuile@gmail.com"]
+  s.homepage    = "www.companytools.nl"
+  s.summary     = "Rails 3.2 Blog engine using SimplyStored as CouchDB orm"
+  s.description = "Rails 3.2 Blog engine using SimplyStored as CouchDB orm as part of the CouchDB rails family of bterkuile"
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
-  s.test_files = Dir["test/**/*"]
+  s.test_files = Dir["spec/**/*"]
 
   s.add_dependency "rails", "~> 3.2.6"
   # s.add_dependency "jquery-rails"
