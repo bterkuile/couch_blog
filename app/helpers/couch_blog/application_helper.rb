@@ -34,14 +34,15 @@ module CouchBlog
     def page_link(to, options = {})
       @page_links ||= []
       if to.is_a?(Symbol)
+        url = couch_blog.url_for({action: to, only_path: true})
         if @current_model.present?
           if to == :index
-            @page_links << link_to(t("couch_blog.action.#{to}.link", models: @current_model.model_name.human_plural), {action: to}, options)
+            @page_links << link_to(t("couch_blog.action.#{to}.link", models: @current_model.model_name.human_plural), url, options)
           else
-            @page_links << link_to(t("couch_blog.action.#{to}.link", model: @current_model.model_name.human), {action: to}, options)
+            @page_links << link_to(t("couch_blog.action.#{to}.link", model: @current_model.model_name.human), url, options)
           end
         else
-          @page_links << link_to(t("couch_blog.action.#{to}.link"), {action: to}, options)
+          @page_links << link_to(t("couch_blog.action.#{to}.link"), url, options)
         end
       else
         @page_links << to
