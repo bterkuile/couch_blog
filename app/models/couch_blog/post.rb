@@ -1,6 +1,9 @@
 module CouchBlog
   class Post
     include SimplyStored::Couch
+
+    attr_accessor :frontend
+
     property :title
     property :date, type: Date
     property :body
@@ -9,7 +12,15 @@ module CouchBlog
     validates :date, presence: true
 
     def to_param
-      title.present? ? "#{id}/#{title.parameterize}" : id
+      title.present? && frontend.present? ? "#{id}/#{title.parameterize}" : id
+    end
+
+    # Allow usage like:
+    #   link_to '...', [post.for_frontend]
+    # to activate named routing
+    def for_frontend
+      @frontend = true
+      self
     end
   end
 end
