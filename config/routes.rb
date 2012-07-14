@@ -2,7 +2,7 @@ CouchBlog::Engine.routes.draw do
   resources :posts, only: [:index, :show]
   namespace :admin do
     resources :posts
-    get "posts/:id(/:title)" => 'admin/posts#show'
+    get "posts/:id(/:title)" => 'posts#show'
     root to: 'posts#index'
   end
 

@@ -19,6 +19,8 @@ gem 'bourbon'
 group :development do
   gem 'pry'
   gem 'thin'
+  gem 'devise', '2.0.4'
+  gem 'devise_simply_stored'
 end
 group :test do
   gem 'rspec-rails'
