@@ -1,0 +1,17 @@
+- title :index, CouchBlog::Category
+- if @categories.any?
+  %table.list-table
+    %thead
+      %tr
+        %th.name= CouchBlog::Category.human_attribute_name(:name)
+        %th.action.edit
+        %th.action.destroy
+    %tbody
+      - for category in @categories
+        %tr.category-row{id: "category-row-#{category.id}", class: cycle(:odd, :even)}
+          %td.name= link_to category.name, couch_blog.admin_category_path(category)
+          %td.action.edit= table_edit category
+          %td.action.destroy= table_destroy category
+- else
+  = empty_result CouchBlog::Category
+- page_link :new

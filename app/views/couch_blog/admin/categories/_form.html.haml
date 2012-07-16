@@ -1,0 +1,7 @@
+= form_for([couch_blog, :admin, @category]) do |f|
+  = render 'error_messages', target: @category
+  .field
+    = f.label :name
+    = f.text_field :name
+  .acions
+    = f.submit t('couch_blog.action.save')

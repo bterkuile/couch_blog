@@ -1,4 +1,4 @@
-= form_for([:admin, @post]) do |f|
+= form_for([couch_blog, :admin, @post]) do |f|
   = render 'error_messages', target: @post
   .field
     = f.label :title
@@ -9,5 +9,11 @@
   .field
     = f.label :body
     = f.text_area :body, class: 'editor-big'
+  .field.habtm
+    = hidden_field_tag 'post[category_ids][]', ''
+    - for category in CouchBlog::Category.all
+      .category-check-container
+        = check_box_tag 'post[category_ids][]', category.id, @post.categories.include?(category), id: "category-checker-#{category.id}"
+        = label_tag "category-checker-#{category.id}", category.name
   .acions
     = f.submit t('couch_blog.action.save')

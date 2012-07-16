@@ -50,11 +50,11 @@ module CouchBlog
     end
 
     def table_edit(record)
-      link_to t('couch_blog.action.edit.table_link'), [:edit, :admin, record]
+      link_to t('couch_blog.action.edit.table_link'), [couch_blog, :edit, :admin, record]
     end
 
     def table_destroy(record)
-      link_to t('couch_blog.action.destroy.table_link'), [:admin, record], method: :delete, confirm: are_you_sure?
+      link_to t('couch_blog.action.destroy.table_link'), [couch_blog, :admin, record], method: :delete, confirm: are_you_sure?
     end
 
     def are_you_sure?

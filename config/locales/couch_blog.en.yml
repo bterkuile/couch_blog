@@ -3,19 +3,24 @@ en:
     models:
       couch_blog:
         post: Post
+        category: Category
       plural:
         couch_blog:
           post: Posts
+          category: Categories
     attributes:
       couch_blog:
         post:
           title: Titel
           date: Datum
           body: Content
+        category:
+          name: Name
   couch_blog:
     general:
       are_you_sure: 'Are you sure?'
     action:
+      save: Save
       index:
         link: '%{models}'
         title: Listing %{models}
