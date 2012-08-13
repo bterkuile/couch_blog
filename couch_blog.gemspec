@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = CouchBlog::VERSION
   s.authors     = ["Benjamin ter Kuile"]
   s.email       = ["bterkuile@gmail.com"]
-  s.homepage    = "www.companytools.nl"
+  s.homepage    = "http://www.companytools.nl/"
   s.summary     = "Rails 3.2 Blog engine using SimplyStored as CouchDB orm"
   s.description = "Rails 3.2 Blog engine using SimplyStored as CouchDB orm as part of the CouchDB rails family of bterkuile"
 
