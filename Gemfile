@@ -12,12 +12,13 @@ gem 'simply_stored', :git => 'git://github.com/bterkuile/simply_stored.git'
 group :assets do
   gem 'coffee-rails'
   gem 'sass-rails'
-  gem 'bourbon'
+  gem 'bootstrap-sass'
 end
 
 gem 'tinymce-rails'
 gem 'haml-rails'
 gem 'kaminari'
+gem 'paperclip'
 # jquery-rails is used by the dummy application
 gem "jquery-rails"
 group :development do
@@ -25,13 +26,14 @@ group :development do
   gem 'thin'
   gem 'devise', '2.0.4'
   gem 'devise_simply_stored'
+  gem 'cmtool', git: 'git://github.com/bterkuile/cmtool.git'
 end
 group :test do
-  gem 'rspec-rails'
+  gem 'pry'
+  gem 'steak'
   gem 'factory_girl_rails'
   gem 'devise', '2.0.4'
   gem 'devise_simply_stored'
-  gem 'capybara'
 end
 # Declare any dependencies that are still in development here instead of in
 # your gemspec. These might include edge Rails or gems from your path or

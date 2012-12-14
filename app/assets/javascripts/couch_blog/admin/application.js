@@ -11,7 +11,7 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
-//= require jquery-ui
+//= require bootstrap
 //= require tinymce-jquery
 //= require jquery_ujs
 //= require_directory .
