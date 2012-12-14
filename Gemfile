@@ -5,17 +5,21 @@ source "http://rubygems.org"
 # development dependencies will be added by default to the :development group.
 gemspec
 
-# jquery-rails is used by the dummy application
-gem "jquery-rails"
 
 gem 'couch_potato', :git => 'git://github.com/bterkuile/couch_potato.git'
 gem 'simply_stored', :git => 'git://github.com/bterkuile/simply_stored.git'
-gem 'haml-rails'
-gem 'coffee-rails'
-gem 'sass-rails'
+
+group :assets do
+  gem 'coffee-rails'
+  gem 'sass-rails'
+  gem 'bourbon'
+end
+
 gem 'tinymce-rails'
+gem 'haml-rails'
 gem 'kaminari'
-gem 'bourbon'
+# jquery-rails is used by the dummy application
+gem "jquery-rails"
 group :development do
   gem 'pry'
   gem 'thin'
