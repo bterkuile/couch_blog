@@ -1,0 +1,47 @@
+doctype html
+html lang="en"
+  head
+    title CouchBlog - Admin
+    meta charset="utf-8"
+    meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+    link href="/favicon.ico" rel="shortcut icon"
+    = csrf_meta_tags
+    = stylesheet_link_tag "couch_blog/admin/application", :media => "all"
+    = javascript_include_tag "couch_blog/admin/application"
+    = yield(:head)
+    javascript:
+      $(function(){
+        //Onload
+        #{yield(:onload_javascript)}
+      });
+
+  body
+    .container
+      .content
+        - if flash[:alert].present?
+          .alert.alert-error
+            a.close data-dismiss="alert" &#215;
+            div= flash[:alert]
+        - if flash[:notice].present?
+          .alert.alert-success
+            a.close data-dismiss="alert" &#215;
+            div= flash[:notice]
+        .row
+          .span9
+            = content_for?(:content) ? yield(:content) : yield
+            - if content_for?(:page_links)
+              #sub-navigation-container.form-actions = yield(:page_links)
+               
+          .span3
+            .well.sidebar-nav
+              h3= content_for?(:page_title) ? yield(:page_title) : ''
+              ul.nav.nav-list
+                li.nav-header Links
+                li= link_to "Home", couch_blog.root_path
+            = yield :sidebar
+    
+      footer
+        p &copy; Companytools 2013
+    = yield :footer
+    #hidden-html.hide= yield :hidden_html

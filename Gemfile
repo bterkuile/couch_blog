@@ -6,17 +6,19 @@ source "http://rubygems.org"
 gemspec
 
 
-gem 'couch_potato', :git => 'git://github.com/bterkuile/couch_potato.git'
-gem 'simply_stored', :git => 'git://github.com/bterkuile/simply_stored.git'
+gem 'couch_potato', github: 'bterkuile/couch_potato'
+gem 'simply_stored', github: 'bterkuile/simply_stored'
 
 group :assets do
   gem 'coffee-rails'
   gem 'sass-rails'
+  gem 'bourbon'
   gem 'bootstrap-sass'
 end
 
 gem 'tinymce-rails'
 gem 'haml-rails'
+gem 'slim-rails'
 gem 'kaminari'
 gem 'paperclip'
 # jquery-rails is used by the dummy application
@@ -26,7 +28,8 @@ group :development do
   gem 'thin'
   gem 'devise', '2.0.4'
   gem 'devise_simply_stored'
-  gem 'cmtool', git: 'git://github.com/bterkuile/cmtool.git'
+  #gem 'cmtool', github: 'bterkuile/cmtool'
+  #gem 'cmtool', path: '~/companytools/development/rails/cmtool'
 end
 group :test do
   gem 'pry'

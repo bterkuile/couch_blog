@@ -10,6 +10,8 @@ module CouchBlog
 
           end
         end
+        CouchBlog::Post.has_and_belongs_to_many :keywords, storing_keys: true, class_name: 'Cmtool::Keyword'
+        Cmtool::Keyword.has_and_belongs_to_many :posts, class_name: 'CouchBlog::Post'
       end
     end
   end

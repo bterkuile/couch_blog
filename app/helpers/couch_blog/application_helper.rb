@@ -37,9 +37,9 @@ module CouchBlog
         url = couch_blog.url_for({action: to, only_path: true})
         if @current_model.present?
           if to == :index
-            @page_links << link_to(t("couch_blog.action.#{to}.link", models: @current_model.model_name.human_plural), url, options)
+            @page_links << link_to(t("couch_blog.action.#{to}.link", models: @current_model.model_name.human_plural), url, options.reverse_merge(class: 'btn'))
           else
-            @page_links << link_to(t("couch_blog.action.#{to}.link", model: @current_model.model_name.human), url, options)
+            @page_links << link_to(t("couch_blog.action.#{to}.link", model: @current_model.model_name.human), url, options.reverse_merge(class: 'btn btn-info'))
           end
         else
           @page_links << link_to(t("couch_blog.action.#{to}.link"), url, options)
@@ -47,14 +47,27 @@ module CouchBlog
       else
         @page_links << to
       end
+
+      # Return last added link
+      @page_links.last + '&nbsp;'.html_safe
+    end
+
+    def page_links(options = {}, &block)
+      content_for :page_links, &block
     end
 
     def table_edit(record)
-      link_to t('couch_blog.action.edit.table_link'), [couch_blog, :edit, :admin, record]
+      link_to t('couch_blog.action.edit.table_link'), [couch_blog, :edit, :admin, record], class: 'btn btn-warning'
     end
 
     def table_destroy(record)
-      link_to t('couch_blog.action.destroy.table_link'), [couch_blog, :admin, record], method: :delete, confirm: are_you_sure?
+      link_to t('couch_blog.action.destroy.table_link'), [couch_blog, :admin, record], method: :delete, confirm: are_you_sure?, class: 'btn btn-danger'
+    end
+
+    def if_cmtool_present(options = {}, &block)
+      if defined?(Cmtool)
+        capture(&block)
+      end
     end
 
     def are_you_sure?

@@ -14,4 +14,13 @@
 //= require bootstrap
 //= require tinymce-jquery
 //= require jquery_ujs
+//= require tinymce-jquery
+//= require_self
 //= require_directory .
+$(function(){
+  $('textarea.mceEditor, .editor_full').tinymce({
+    theme: 'advanced',
+    relative_urls: false
+  });
+  $('.editor_basic').tinymce({theme: 'simple'});
+})

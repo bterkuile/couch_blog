@@ -1,6 +1,6 @@
 - title :index, CouchBlog::Post
 - if @posts.any?
-  %table.list-table
+  %table.list-table.table.table-striped
     %thead
       %tr
         %th.title= CouchBlog::Post.human_attribute_name(:title)
@@ -16,4 +16,5 @@
           %td.action.destroy= table_destroy post
 - else
   = empty_result CouchBlog::Post
-- page_link :new
+- page_links do
+  = page_link :new

@@ -1,0 +1,14 @@
+- title :show, CouchBlog::Post
+- page_links do
+  = page_link :index
+  = page_link :edit
+dl.dl-horizontal
+  dt= attribute :title
+  dd= @post.title
+  dt= attribute :date
+  dd=l @post.date
+  = if_cmtool_present do
+    dt= Cmtool::Keyword.model_name.human_plural
+    dd= @post.keywords.map(&:name).join(', ')
+  dt= attribute :body
+  dd=raw @post.body
