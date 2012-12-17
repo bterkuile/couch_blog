@@ -6,8 +6,7 @@ module CouchBlog
         require 'cmtool'
         Cmtool::Menu.register do
           append_to :publications do
-            resource_link CouchBlog::Post, scope: CouchBlog::Admin, engine: CouchBlog::Engine
-
+            resource_link CouchBlog::Post, scope: CouchBlog::Admin, engine: CouchBlog::Engine, label: :couch_blog_posts
           end
         end
         CouchBlog::Post.has_and_belongs_to_many :keywords, storing_keys: true, class_name: 'Cmtool::Keyword'
