@@ -29,7 +29,6 @@ group :development do
   gem 'devise', '2.0.4'
   gem 'devise_simply_stored'
   #gem 'cmtool', github: 'bterkuile/cmtool'
-  #gem 'cmtool', path: '~/companytools/development/rails/cmtool'
 end
 group :test do
   gem 'pry'
