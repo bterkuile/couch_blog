@@ -19,6 +19,7 @@ en:
   couch_blog:
     general:
       are_you_sure: 'Are you sure?'
+      empty_result: 'No %{models} found'
     action:
       save: Save
       index:
