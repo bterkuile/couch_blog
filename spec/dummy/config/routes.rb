@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   mount CouchBlog::Engine => "/blog"
   #mount Cmtool::Engine => '/cmtool'
-  match "/test" => "dashboard#test", as: 'test1'
+  get "/test" => "dashboard#test", as: 'test1'
 
   root to: "dashboard#test", as: 'test2'
 end

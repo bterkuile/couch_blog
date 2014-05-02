@@ -16,9 +16,24 @@ ENGINE_RAILS_ROOT=File.join(File.dirname(__FILE__), '../')
 Dir[File.join(ENGINE_RAILS_ROOT, "spec/support/**/*.rb")].each {|f| require f }
 Dir[File.join(ENGINE_RAILS_ROOT, "spec/factories/**/*.rb")].each {|f| require f }
 
+module NavigationHelpers
+  # Put helper methods related to the paths in your application here.
+
+  def homepage
+    "/"
+  end
+
+  def login_user
+    visit '/users/sign_in'
+    fill_in 'user[email]', with: @user.email
+    fill_in 'user[password]', with: @user_password
+    click_on 'Sign in'
+  end
+end
+
 I18n.locale = :en
 Devise.stretches = 1
-Capybara.default_driver = :selenium
+#Capybara.javascript_driver = :webkit
 RSpec.configure do |config|
   # == Mock Framework
   #
@@ -29,7 +44,8 @@ RSpec.configure do |config|
   # config.mock_with :rr
   config.mock_with :rspec
   config.include FactoryGirl::Syntax::Methods
-  config.include Devise::TestHelpers, :type => :controller
+  config.include Devise::TestHelpers, type: :controller
+  config.include NavigationHelpers,   type: :feature
   config.include EndWithMatcher
   #config.use_transactional_fixtures = true
   config.infer_base_class_for_anonymous_controllers = true
@@ -45,7 +61,8 @@ RSpec.configure do |config|
 
   config.before :each do
     CouchPotato.couchrest_database.recreate!
-    @user = User.create(email: 'test@example.com')
+    @user_password = 'secret'
+    @user = User.create(email: 'test@example.com', password: @user_password)
   end
   config.before :each, type: :request do
     #Capybara.current_driver = :selenium

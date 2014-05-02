@@ -14,7 +14,7 @@ module CouchBlog
 
       # POST admin/posts
       def create
-        @post = CouchBlog::Post.new(params[:post])
+        @post = CouchBlog::Post.new(post_params)
         if @post.save
           redirect_to([:admin, @post], notice: t('couch_blog.action.create.successful', model: CouchBlog::Post.model_name.human))
         else
@@ -35,7 +35,7 @@ module CouchBlog
       # PUT admin/posts/:id
       def update
         @post = CouchBlog::Post.find(params[:id])
-        if @post.update_attributes(params[:post])
+        if @post.update_attributes(post_params)
           redirect_to([:admin, @post], notice: t('couch_blog.action.update.successful', model: CouchBlog::Post.model_name.human))
         else
           render action: :edit
@@ -47,6 +47,10 @@ module CouchBlog
         @post = CouchBlog::Post.find(params[:id])
         @post.destroy
         redirect_to({action: :index}, notice: t('couch_blog.action.destroy.successful', model: CouchBlog::Post.model_name.human))
+      end
+
+      def post_params
+        params.require(:post).permit(:title, :date, :body)
       end
     end
   end
