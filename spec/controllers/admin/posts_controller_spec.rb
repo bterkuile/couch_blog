@@ -24,6 +24,8 @@ describe CouchBlog::Admin::PostsController do
   # CouchBlog::Post. As you add validations to CouchBlog::Post, be sure to
   # update the return value of this method accordingly.
   before :each do
+    @user.is_admin = true
+    @user.save
     sign_in @user
     @routes = CouchBlog::Engine.routes
   end
