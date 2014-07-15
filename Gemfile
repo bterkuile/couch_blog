@@ -5,13 +5,13 @@ source "http://rubygems.org"
 # development dependencies will be added by default to the :development group.
 gemspec
 
-gem 'rails', '>= 4.1.0'
+gem 'rails', '>= 4.1.4'
 gem 'couch_potato', github: 'bterkuile/couch_potato'
 gem 'simply_stored', github: 'bterkuile/simply_stored'
 
 group :assets do
   gem 'coffee-rails'
-  gem 'sass-rails'
+  gem 'sass-rails', '4.0.2'
   gem 'bourbon'
   gem 'bootstrap-sass'
 end

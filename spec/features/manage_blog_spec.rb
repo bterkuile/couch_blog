@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'Manage blog' do
+describe 'Manage blog', type: :feature do
   # In order to manage the blog
   # As an admin user
   # I want to mange couch_blog using cmtool
