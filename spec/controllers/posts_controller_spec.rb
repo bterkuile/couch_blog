@@ -27,10 +27,14 @@ describe CouchBlog::PostsController do
   end
 
   describe "GET index" do
-    it "assigns all posts as @posts" do
-      post = create :post
+    it "assigns all posts as @posts, ordered descending by date up till today" do
+      post1 = create :post, date: Date.today
+      post2 = create :post, date: Date.today + 3.weeks
+      post3 = create :post, date: Date.today + 2.weeks
+      post4 = create :post, date: Date.today - 4.weeks
+      post5 = create :post, date: Date.today - 2.weeks
       get :index
-      assigns(:posts).should =~ [post]
+      assigns(:posts).should =~ [post1, post5, post4]
     end
   end
 

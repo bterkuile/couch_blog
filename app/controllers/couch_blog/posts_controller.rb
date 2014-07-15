@@ -3,7 +3,7 @@ module CouchBlog
 
     # GET posts
     def index
-      @posts = CouchBlog::Post.all
+      @posts = CouchBlog::Post.active
       render couch_blog_render if defined? couch_blog_render
     end
 

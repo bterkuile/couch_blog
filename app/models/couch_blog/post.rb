@@ -22,7 +22,7 @@ module CouchBlog
 
     # SCOPES
     def self.active(date = Date.today)
-      database.view(by_date(endkey: date, reduce: false, include_docs: true))
+      database.view(by_date(startkey: date, reduce: false, include_docs: true, descending: true))
     end
 
     def self.find_all_by_keyword_id(keyword_id, options = {})
