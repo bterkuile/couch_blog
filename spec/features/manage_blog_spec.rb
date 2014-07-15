@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe 'Manage blog', type: :feature do
   # In order to manage the blog
   # As an admin user
