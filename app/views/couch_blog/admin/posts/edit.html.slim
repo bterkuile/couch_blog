@@ -1,0 +1,6 @@
+- title :edit, CouchBlog::Post
+- page_links do
+  = page_link :index, class: 'to-index-button'
+  = page_link :show, class: 'record-show-button'
+
+= render 'couch_blog/admin/posts/form'

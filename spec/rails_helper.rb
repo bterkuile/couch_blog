@@ -36,7 +36,7 @@ module NavigationHelpers
     visit '/users/sign_in'
     fill_in 'user[email]', with: @user.email
     fill_in 'user[password]', with: @user_password
-    click_on 'Sign in'
+    click_on 'Log in'
   end
 
   def sign_in_user_through_request

@@ -19,7 +19,13 @@ module CouchBlog
       end
 
       def set_couch_blog_admin_locale
-        I18n.locale = respond_to?(:couch_blog_locale) ? couch_blog_locale : :en
+        if respond_to?(:couch_blog_locale)
+          I18n.locale = couch_blog_locale 
+        elsif respond_to?(:cmtool_locale)
+          I18n.locale = cmtool_locale
+        else
+          I18n.locale = :en
+        end
       end
     end
   end

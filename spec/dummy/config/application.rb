@@ -9,6 +9,7 @@ require "sprockets/railtie"
 
 Bundler.require *Rails.groups(:assets => %w(development test))
 require "couch_blog"
+require 'cmtool'
 
 module Dummy
   class Application < Rails::Application

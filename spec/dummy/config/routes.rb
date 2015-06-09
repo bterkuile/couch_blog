@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
 
+  mount Cmtool::Engine => "/cmtool"
   mount CouchBlog::Engine => "/blog"
+
   #mount Cmtool::Engine => '/cmtool'
   get "/test" => "dashboard#test", as: 'test1'
 

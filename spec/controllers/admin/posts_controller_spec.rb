@@ -84,14 +84,14 @@ describe CouchBlog::Admin::PostsController do
     describe "with invalid params" do
       it "assigns a newly created but unsaved post as @post" do
         # Trigger the behavior that occurs when invalid params are submitted
-        CouchBlog::Post.any_instance.stub(:save).and_return(false)
+        expect_any_instance_of( CouchBlog::Post ).to receive(:save).and_return(false)
         post :create, :post => {title: ''}
         assigns(:post).should be_a_new(CouchBlog::Post)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
-        CouchBlog::Post.any_instance.stub(:save).and_return(false)
+        expect_any_instance_of( CouchBlog::Post ).to receive(:save).and_return(false)
         post :create, :post => {title: ''}
         response.should render_template("new")
       end
@@ -107,7 +107,7 @@ describe CouchBlog::Admin::PostsController do
         # specifies that the CouchBlog::Post created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        CouchBlog::Post.any_instance.should_receive(:update_attributes).with({'title' => 'Yahoooooooo'})
+        expect_any_instance_of( CouchBlog::Post ).to receive(:update_attributes).with('title' => 'Yahoooooooo')
         put :update, :id => post.id, :post => {'title' => 'Yahoooooooo'}
       end
 
@@ -128,7 +128,7 @@ describe CouchBlog::Admin::PostsController do
       it "assigns the post as @post" do
         post = create :post
         # Trigger the behavior that occurs when invalid params are submitted
-        CouchBlog::Post.any_instance.stub(:save).and_return(false)
+        expect_any_instance_of( CouchBlog::Post ).to receive(:save).and_return(false)
         put :update, :id => post.id, :post => {title: ''}
         assigns(:post).should eq(post)
       end
@@ -136,7 +136,7 @@ describe CouchBlog::Admin::PostsController do
       it "re-renders the 'edit' template" do
         post = create :post
         # Trigger the behavior that occurs when invalid params are submitted
-        CouchBlog::Post.any_instance.stub(:save).and_return(false)
+        expect_any_instance_of( CouchBlog::Post ).to receive(:save).and_return(false)
         put :update, :id => post.id, :post => {title: ''}
         response.should render_template("edit")
       end

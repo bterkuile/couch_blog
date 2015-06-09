@@ -17,31 +17,19 @@ html lang="en"
       });
 
   body
+    - if defined?(Cmtool)
+      = render 'cmtool/application/menu'
+    - else
+      nav.top-bar data-topbar="" role="navigation" 
+        ul.title-area
+          li.name
+            h1
+              a(href=couch_i18n.root_path)= yield :title
+          li.toggle-topbar.menu-icon
+            a href="#" 
+              span Menu
     .container
-      .content
-        - if flash[:alert].present?
-          .alert.alert-error
-            a.close data-dismiss="alert" &#215;
-            div= flash[:alert]
-        - if flash[:notice].present?
-          .alert.alert-success
-            a.close data-dismiss="alert" &#215;
-            div= flash[:notice]
-        .row
-          .span9
-            = content_for?(:content) ? yield(:content) : yield
-            - if content_for?(:page_links)
-              #sub-navigation-container.form-actions = yield(:page_links)
-               
-          .span3
-            .well.sidebar-nav
-              h3= content_for?(:page_title) ? yield(:page_title) : ''
-              ul.nav.nav-list
-                li.nav-header Links
-                li= link_to "Home", couch_blog.root_path
-            = yield :sidebar
-    
-      footer
-        p &copy; Companytools 2013
+      = render 'alerts'
+      = yield
     = yield :footer
     #hidden-html.hide= yield :hidden_html
