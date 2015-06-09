@@ -1,5 +1,6 @@
 - for post in @posts
   .post
-    h1= link_to post.title, couch_blog.post_path(post.for_frontend)
+    /h1= link_to post.title, couch_blog.post_path(post.for_frontend)
+    h1= link_to post.title, couch_blog.post_path(post.id, post.title.parameterize)
     span.date=l post.date
     .post-body=raw post.body

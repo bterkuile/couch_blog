@@ -34,6 +34,10 @@ module CouchBlog
       title.present? && frontend.present? ? "#{id}/#{title.parameterize}" : id
     end
 
+    def keywords
+      []
+    end
+
     # Allow usage like:
     #   link_to '...', [post.for_frontend]
     # to activate named routing

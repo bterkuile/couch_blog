@@ -1,5 +1,5 @@
 CouchBlog::Engine.routes.draw do
-  resources :posts, only: [:index, :show]
+  #resources :posts, only: [:index, :show]
   namespace :admin do
     resources :posts
     resources :categories
@@ -8,5 +8,5 @@ CouchBlog::Engine.routes.draw do
   end
 
   root to: 'posts#index'
-  get "posts/:id(/:title)" => 'posts#show'
+  get "/posts/:id(/:title)" => 'posts#show', as: :post
 end
