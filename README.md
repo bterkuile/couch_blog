@@ -3,8 +3,10 @@ couch\_blog
 
 [![Build Status](https://secure.travis-ci.org/bterkuile/couch_blog.png)](http://travis-ci.org/bterkuile/couch\_blog)
 
-Rails 4 Blog engine using SimplyStored as CouchDB orm
-
+Rails 4 Blog engine using SimplyStored as CouchDB orm. At the moment it
+is developed to use together with the
+[cmtool](https://github.com/bterkuile/cmtool) gem, so please read the
+documentation of this gem first, or try your luck.
 
 ## Implement
 
@@ -36,7 +38,7 @@ end
 
 ### Custom view
 To create a custom view, create a file eg:
-`app/views/couch_blog/posts/index.htmlhaml`
+`app/views/couch_blog/posts/index.html.haml`
 
 having your custom content:
 ```haml

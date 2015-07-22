@@ -39,7 +39,6 @@ GIT
 PATH
   remote: .
   specs:
-    couch_blog (0.0.1)
 
 GEM
   remote: http://rubygems.org/
