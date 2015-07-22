@@ -6,7 +6,6 @@ source "http://rubygems.org"
 gemspec
 
 gem 'rails', '>= 4.2.1'
-gem 'couch_potato', github: 'bterkuile/couch_potato'
 gem 'simply_stored', github: 'bterkuile/simply_stored'
 
 group :assets do
@@ -24,7 +23,7 @@ end
 gem 'tinymce-rails'
 gem 'slim-rails'
 gem 'kaminari'
-gem 'paperclip'
+gem 'paperclip', ['>= 3.4', '!= 4.3.0']
 # jquery-rails is used by the dummy application
 group :development, :test do
   gem 'pry'
