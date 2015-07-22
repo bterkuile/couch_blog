@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/bterkuile/cmtool.git
-  revision: 49b61a502624b00aaf3a96c0bd43085ef9f85d75
+  revision: f7aa44ae2e02a4ce5051150cee81eece4aa1357d
   specs:
     cmtool (1.0.0)
       ace-rails-ap
