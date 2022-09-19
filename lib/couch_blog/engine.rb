@@ -1,7 +1,9 @@
 module CouchBlog
   class Engine < ::Rails::Engine
     isolate_namespace CouchBlog
-    initializer 'couch_blog.cmtool', after: 'cmtool.build_menu' do
+
+    #initializer 'couch_blog.cmtool', after: 'cmtool.build_menu' do
+    config.after_initialize do
       if defined? Cmtool
         require 'cmtool'
         Cmtool::Menu.register do
